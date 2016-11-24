@@ -121,7 +121,7 @@
     public static final Android.os.Parcelable$Creator *;
 }
 
--keep class com.flyou.girls.ui.mainImageList.model.** {
+-keep class com.android.ll.znns.ui.mainImageList.model.** {
     <fields>;
     <methods>;
 }

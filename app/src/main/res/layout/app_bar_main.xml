@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context=".ui.MainActivity">
+    tools:context="com.android.ll.znns.ui.MainActivity">
 
     <android.support.design.widget.AppBarLayout
 
@@ -25,7 +25,6 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_main" />
-
 
 
 </android.support.design.widget.CoordinatorLayout>

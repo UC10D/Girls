@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000"
-    tools:context=".ui.MainActivity">
+    tools:context="com.android.ll.znns.ui.MainActivity">
 
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/laoding"
@@ -20,8 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="正在加载高清大图，你懂得……"
-        android:textColor="#fff"
-       />
+        android:textColor="#fff" />
 
     <TextView
         android:id="@+id/download"
@@ -35,5 +32,5 @@
         android:clickable="true"
 
         android:text="点我下载"
-        android:textColor="#fff"/>
+        android:textColor="#fff" />
 </RelativeLayout>
