@@ -1,6 +1,6 @@
 package com.flyou.girls.ui.typeImageList.model;
 
-import com.flyou.girls.ui.typeImageList.domain.TypeImageDomain;
+import com.android.znns.domain.TypeImageDomain;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

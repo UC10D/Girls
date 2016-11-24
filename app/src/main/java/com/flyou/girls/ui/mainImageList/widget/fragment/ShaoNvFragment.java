@@ -9,11 +9,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
-import com.flyou.girls.Constant;
+import com.android.znns.domain.Constant;
 import com.flyou.girls.R;
 import com.flyou.girls.adapter.ViewHolder;
 import com.flyou.girls.adapter.recyclerview.CommonAdapter;
-import com.flyou.girls.ui.mainImageList.domain.ImageListDomain;
+import com.android.znns.domain.ImageListDomain;
 import com.flyou.girls.ui.mainImageList.persenter.ImageListPersenter;
 import com.flyou.girls.ui.mainImageList.persenter.ImageListPersenterImpl;
 import com.flyou.girls.ui.mainImageList.view.ImageListView;

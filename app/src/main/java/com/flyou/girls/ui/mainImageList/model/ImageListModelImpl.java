@@ -1,7 +1,7 @@
 package com.flyou.girls.ui.mainImageList.model;
 
-import com.flyou.girls.Constant;
-import com.flyou.girls.ui.mainImageList.domain.ImageListDomain;
+import com.android.znns.domain.Constant;
+import com.android.znns.domain.ImageListDomain;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

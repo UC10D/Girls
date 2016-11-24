@@ -1,6 +1,6 @@
 package com.flyou.girls.ui.mainImageList.persenter;
 
-import com.flyou.girls.ui.mainImageList.domain.ImageListDomain;
+import com.android.znns.domain.ImageListDomain;
 import com.flyou.girls.ui.mainImageList.model.ImageListModel;
 import com.flyou.girls.ui.mainImageList.model.ImageListModelImpl;
 import com.flyou.girls.ui.mainImageList.view.ImageListView;

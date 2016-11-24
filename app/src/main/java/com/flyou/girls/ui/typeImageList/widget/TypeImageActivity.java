@@ -17,7 +17,7 @@ import com.flyou.girls.adapter.SpacesItemDecoration;
 import com.flyou.girls.adapter.ViewHolder;
 import com.flyou.girls.adapter.recyclerview.CommonAdapter;
 import com.flyou.girls.ui.ImageDetialActivity;
-import com.flyou.girls.ui.typeImageList.domain.TypeImageDomain;
+import com.android.znns.domain.TypeImageDomain;
 import com.flyou.girls.ui.typeImageList.persenter.TypeImageListPersenter;
 import com.flyou.girls.ui.typeImageList.persenter.TypeImageListPersenterImpl;
 import com.flyou.girls.ui.typeImageList.view.TypeImageListView;

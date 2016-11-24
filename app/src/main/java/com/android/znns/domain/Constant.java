@@ -1,4 +1,4 @@
-package com.flyou.girls;
+package com.android.znns.domain;
 
 /**
  * ============================================================

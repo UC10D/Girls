@@ -1,6 +1,6 @@
 package com.flyou.girls.ui.mainImageList.view;
 
-import com.flyou.girls.ui.mainImageList.domain.ImageListDomain;
+import com.android.znns.domain.ImageListDomain;
 
 import java.util.List;
 

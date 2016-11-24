@@ -1,6 +1,6 @@
 package com.flyou.girls.ui.typeImageList.persenter;
 
-import com.flyou.girls.ui.typeImageList.domain.TypeImageDomain;
+import com.android.znns.domain.TypeImageDomain;
 import com.flyou.girls.ui.typeImageList.model.TypeImageListModel;
 import com.flyou.girls.ui.typeImageList.model.TypeImageListModelImpl;
 import com.flyou.girls.ui.typeImageList.view.TypeImageListView;

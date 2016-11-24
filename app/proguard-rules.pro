@@ -15,3 +15,127 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontnote
+-verbose
+
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.app.IntentService
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class * extends android.app.Fragment
+-keep public class * extends android.support.v4.app.Fragment
+-keep public class com.android.vending.licensing.ILicensingService
+-keep class android.support.** { *; }
+
+-dontwarn android.support.**
+
+
+-keep public class * extends android.app.Fragment
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class * extends android.support.v4.**
+-keep public class com.android.vending.licensing.ILicensingService
+
+# Retrofit
+-dontwarn retrofit2.**
+-keep class retrofit2.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
+
+# RxJava RxAndroide
+-dontwarn sun.misc.**
+-keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
+    long producerIndex;
+    long consumerIndex;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode producerNode;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode consumerNode;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-dontwarn sun.misc.**
+-keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
+ long producerIndex;
+ long consumerIndex;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+ rx.internal.util.atomic.LinkedQueueNode producerNode;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
+ rx.internal.util.atomic.LinkedQueueNode consumerNode;
+}
+
+
+
+
+
+
+
+
+-dontwarn com.android.volley.**
+-dontwarn com.squareup.okhttp.**
+-dontwarn okio.**
+
+#json和实体类
+##---------------Begin: proguard configuration for Gson  ----------
+-keepattributes Signature
+-keep class sun.misc.Unsafe { *; }
+#-keep class com.google.gson.stream.** { *; }
+-keep class com.google.gson.examples.android.model.** { *; }
+
+-keep class com.google.gson.examples.android.model.** {
+    <fields>;
+    <methods>;
+}
+
+-keep class * implements Android.os.Parcelable { # 保持Parcelable不被混淆
+    public static final Android.os.Parcelable$Creator *;
+}
+
+-keep class com.flyou.girls.ui.mainImageList.model.** {
+    <fields>;
+    <methods>;
+}
+
+#-keepattributes Signature
+
+
+#-libraryjars libs/jsoup-1.9.1.jar
+#-dontwarn rx.android.**
+#-keep class rx.android.** { *;}
+#
+#-dontwarn rx.**
+#-keep class rx.** { *;}
+
+-dontwarn org.jsoup.**
+-keep class org.jsoup.** { *;}
+

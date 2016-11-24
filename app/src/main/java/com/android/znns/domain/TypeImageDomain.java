@@ -1,4 +1,4 @@
-package com.flyou.girls.ui.typeImageList.domain;
+package com.android.znns.domain;
 
 import android.os.Parcel;
 import android.os.Parcelable;
