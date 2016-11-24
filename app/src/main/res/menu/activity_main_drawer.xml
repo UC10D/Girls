@@ -32,17 +32,17 @@
             android:title="美女壁纸" />
     </group>
 
-    <item android:title="关于">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_about"
-                android:title="关于应用" />
-            <item
-                android:id="@+id/nav_personal"
-                android:icon="@drawable/ic_personal"
-                android:title="关于作者" />
-        </menu>
-    </item>
+    <!--<item android:title="关于">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/nav_share"-->
+                <!--android:icon="@drawable/ic_about"-->
+                <!--android:title="关于应用" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_personal"-->
+                <!--android:icon="@drawable/ic_personal"-->
+                <!--android:title="关于作者" />-->
+        <!--</menu>-->
+    <!--</item>-->
 
 </menu>
