@@ -2,6 +2,7 @@ package com.android.ll.znns.ui.mainImageList.model;
 
 import com.android.ll.znns.domain.Constant;
 import com.android.ll.znns.domain.ImageListDomain;
+import com.orhanobut.logger.Logger;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -29,24 +30,35 @@ public class ImageListModelImpl implements ImageListModel {
             public void call(Subscriber<? super List<ImageListDomain>> subscriber) {
                 List<ImageListDomain> imageListDomainList = new ArrayList();
                 try {
-                    Document document = Jsoup.connect(Constant.BASE_URL + type + page).get();
-                    Element imageListelement = document.getElementById("blog-grid");
+                    String url = null;
+                    if(page == 1) {
+                        url = Constant.BASE_URL + type;
+                    } else {
+                        url = Constant.BASE_URL + type + page;
+                    }
 
-                    Elements imageListElements = imageListelement.getElementsByAttributeValueContaining("class", "col-lg-4 col-md-4 three-columns post-box");
+                    Logger.e(url); // error
+                    Document document = Jsoup.connect(url).get();
+                    Logger.d(document.toString()); // error
+                    Elements imageListElements = document.getElementsByClass("photo-list-padding");
+
                     for (Element imageListElement : imageListElements) {
-                        Element link = imageListElement.select("a[href]").first();
-                        Element image = imageListElement.select("img").first();
-                        String linkUrl = link.attr("abs:href");
-                        String imageUrl = image.attr("abs:src");
-                        String imageTitle = image.attr("alt").trim();
-                        imageListDomainList.add(new ImageListDomain(linkUrl, imageUrl, imageTitle));
+                        //URL
+                        Elements link = imageListElement.getElementsByClass("pic");
+                        String linkUrl = Constant.BASE_HOST.concat(link.attr("href"));
 
+                        //图片信息
+                        Element image = imageListElement.select("img").first();
+                        String imageUrl = image.attr("src");
+                        String imageTitle = image.attr("title").trim();
+                        imageListDomainList.add(new ImageListDomain(linkUrl, imageUrl, imageTitle));
                     }
                     subscriber.onNext(imageListDomainList);
+                    Logger.e("" + imageListDomainList.size()); // error
 
                 } catch (IOException e) {
                     subscriber.onError(e);
-
+                    Logger.e(e.getMessage()); // error
                 }
 
             }
