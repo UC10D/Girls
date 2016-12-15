@@ -2,7 +2,6 @@ package com.android.ll.znns.ui.mainImageList.model;
 
 import com.android.ll.znns.domain.Constant;
 import com.android.ll.znns.domain.ImageListDomain;
-import com.orhanobut.logger.Logger;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -34,12 +33,10 @@ public class ImageListModelImpl implements ImageListModel {
                     if(page == 1) {
                         url = Constant.BASE_URL + type;
                     } else {
-                        url = Constant.BASE_URL + type + page;
+                        url = Constant.BASE_URL.concat(type).concat(String.valueOf(page)).concat(".html");
                     }
 
-                    Logger.e(url); // error
                     Document document = Jsoup.connect(url).get();
-                    Logger.d(document.toString()); // error
                     Elements imageListElements = document.getElementsByClass("photo-list-padding");
 
                     for (Element imageListElement : imageListElements) {
@@ -54,13 +51,10 @@ public class ImageListModelImpl implements ImageListModel {
                         imageListDomainList.add(new ImageListDomain(linkUrl, imageUrl, imageTitle));
                     }
                     subscriber.onNext(imageListDomainList);
-                    Logger.e("" + imageListDomainList.size()); // error
 
                 } catch (IOException e) {
                     subscriber.onError(e);
-                    Logger.e(e.getMessage()); // error
                 }
-
             }
         });
 
