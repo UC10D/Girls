@@ -19,10 +19,8 @@ import rx.schedulers.Schedulers;
 
 public class ImageListModelImpl implements ImageListModel {
 
-
     @Override
     public void GetImageList(final String type, final int page, final GetImageListenter listener) {
-
 
         Observable<List<ImageListDomain>> observable = Observable.create(new Observable.OnSubscribe<List<ImageListDomain>>() {
             @Override
