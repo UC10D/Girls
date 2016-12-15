@@ -23,7 +23,7 @@ import java.util.List;
 
 import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 
-public class WALLPAPERFragment extends BaseFragment implements ImageListView, SwipeRefreshLayout.OnRefreshListener {
+public class GamesFragment extends BaseFragment implements ImageListView, SwipeRefreshLayout.OnRefreshListener {
     private ImageListPersenter mPersenter;
     private String mType;
     private int mCurrentPage = 1;
@@ -42,11 +42,11 @@ public class WALLPAPERFragment extends BaseFragment implements ImageListView, Sw
     protected void initData() {
         mPersenter = new ImageListPersenterImpl(this);
         switch (getClass().getSimpleName()) {
-            case "NewFragment":
-                mType = Constant.NEW;
+            case "DMFragment":
+                mType = Constant.DM;
                 break;
-            case "XinGanFragment":
-                mType = Constant.XINGGAN;
+            case "QTFragment":
+                mType = Constant.QT;
                 break;
             case "ShaoNvFragment":
                 mType = Constant.SHAONV;
@@ -60,11 +60,11 @@ public class WALLPAPERFragment extends BaseFragment implements ImageListView, Sw
             case "WMXZFragment":
                 mType = Constant.WMXZ;
                 break;
-            case "WALLPAPERFragment":
-                mType = Constant.WALLPAPER;
+            case "GamesFragment":
+                mType = Constant.GAMES;
                 break;
             default:
-                mType = Constant.NEW;
+                mType = Constant.DM;
                 break;
 
 

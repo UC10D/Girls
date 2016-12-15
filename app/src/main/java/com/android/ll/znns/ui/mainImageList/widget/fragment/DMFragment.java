@@ -23,7 +23,8 @@ import java.util.List;
 
 import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 
-public class XinGanFragment extends BaseFragment implements ImageListView, SwipeRefreshLayout.OnRefreshListener {
+
+public class DMFragment extends BaseFragment implements ImageListView, SwipeRefreshLayout.OnRefreshListener {
     private ImageListPersenter mPersenter;
     private String mType;
     private int mCurrentPage = 1;
@@ -42,11 +43,11 @@ public class XinGanFragment extends BaseFragment implements ImageListView, Swipe
     protected void initData() {
         mPersenter = new ImageListPersenterImpl(this);
         switch (getClass().getSimpleName()) {
-            case "NewFragment":
-                mType = Constant.NEW;
+            case "DMFragment":
+                mType = Constant.DM;
                 break;
-            case "XinGanFragment":
-                mType = Constant.XINGGAN;
+            case "QTFragment":
+                mType = Constant.QT;
                 break;
             case "ShaoNvFragment":
                 mType = Constant.SHAONV;
@@ -60,11 +61,11 @@ public class XinGanFragment extends BaseFragment implements ImageListView, Swipe
             case "WMXZFragment":
                 mType = Constant.WMXZ;
                 break;
-            case "WALLPAPERFragment":
-                mType = Constant.WALLPAPER;
+            case "GamesFragment":
+                mType = Constant.GAMES;
                 break;
             default:
-                mType = Constant.NEW;
+                mType = Constant.DM;
                 break;
 
 
@@ -119,6 +120,7 @@ public class XinGanFragment extends BaseFragment implements ImageListView, Swipe
                     holder.setOnClickListener(R.id.iv_cover, new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+
                             Intent intent = new Intent(context, TypeImageActivity.class);
                             intent.putExtra("linkUrl", imageListDomain.getLinkUrl());
                             intent.putExtra("title", imageListDomain.getImgaeTitle());

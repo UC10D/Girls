@@ -3,46 +3,30 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_new"
+            android:id="@+id/nav_games"
             android:icon="@drawable/ic_least"
-            android:title="最近更新" />
+            android:title="热门游戏" />
         <item
-            android:id="@+id/nav_xingan"
+            android:id="@+id/nav_dm"
             android:icon="@drawable/ic_sex"
-            android:title="性感美女" />
+            android:title="动漫" />
         <item
-            android:id="@+id/nav_shaonv"
+            android:id="@+id/nav_qt"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="青春少女" />
-        <item
-            android:id="@+id/nav_mr"
-            android:icon="@drawable/ic_mrxt"
-            android:title="美乳香臀" />
-        <item
-            android:id="@+id/nav_sw"
-            android:icon="@drawable/ic_swyh"
-            android:title="丝袜长腿" />
-        <item
-            android:id="@+id/nav_xz"
-            android:icon="@drawable/ic_wmxz"
-            android:title="唯美写真" />
-        <item
-            android:id="@+id/nav_wallpaper"
-            android:icon="@drawable/ic_wallper"
-            android:title="美女壁纸" />
+            android:title="卡通" />
     </group>
 
-    <!--<item android:title="关于">-->
-        <!--<menu>-->
-            <!--<item-->
-                <!--android:id="@+id/nav_share"-->
-                <!--android:icon="@drawable/ic_about"-->
-                <!--android:title="关于应用" />-->
-            <!--<item-->
-                <!--android:id="@+id/nav_personal"-->
-                <!--android:icon="@drawable/ic_personal"-->
-                <!--android:title="关于作者" />-->
-        <!--</menu>-->
-    <!--</item>-->
+    <item android:title="关于">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_about"
+                android:title="关于应用" />
+            <item
+                android:id="@+id/nav_personal"
+                android:icon="@drawable/ic_personal"
+                android:title="关于作者" />
+        </menu>
+    </item>
 
 </menu>

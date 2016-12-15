@@ -10,14 +10,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.android.ll.znns.R;
+import com.android.ll.znns.ui.mainImageList.widget.fragment.DMFragment;
 import com.android.ll.znns.ui.mainImageList.widget.fragment.MRXTFragment;
-import com.android.ll.znns.ui.mainImageList.widget.fragment.NewFragment;
+import com.android.ll.znns.ui.mainImageList.widget.fragment.QTFragment;
 import com.android.ll.znns.ui.mainImageList.widget.fragment.SWMTFragment;
 import com.android.ll.znns.ui.mainImageList.widget.fragment.ShaoNvFragment;
-import com.android.ll.znns.ui.mainImageList.widget.fragment.WALLPAPERFragment;
+import com.android.ll.znns.ui.mainImageList.widget.fragment.GamesFragment;
 import com.android.ll.znns.ui.mainImageList.widget.fragment.WMXZFragment;
-import com.android.ll.znns.ui.mainImageList.widget.fragment.XinGanFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,9 +39,9 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_new);
-//        changeFragment(new NewFragment());
-        changeFragment(new WALLPAPERFragment());
+        navigationView.setCheckedItem(R.id.nav_games);
+//        changeFragment(new DMFragment());
+        changeFragment(new GamesFragment());
     }
 
     @Override
@@ -81,45 +82,31 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         switch (id) {
-            case R.id.nav_new:
-                changeFragment(new NewFragment());
-
+            case R.id.nav_games:
+                changeFragment(new GamesFragment());
                 break;
-            case R.id.nav_xingan:
-                changeFragment(new XinGanFragment());
+            case R.id.nav_dm:
+                changeFragment(new DMFragment());
                 break;
-            case R.id.nav_shaonv:
-                changeFragment(new ShaoNvFragment());
+            case R.id.nav_qt:
+                changeFragment(new QTFragment());
                 break;
-            case R.id.nav_mr:
-                changeFragment(new MRXTFragment());
+            case R.id.nav_share:
+                new MaterialDialog.Builder(MainActivity.this)
+                        .title("关于应用")
+                        .icon(getResources().getDrawable(R.drawable.ic_about))
+                        .positiveText("确定")
+                        .content(R.string.about_app)
+                        .show();
                 break;
-            case R.id.nav_sw:
-                changeFragment(new SWMTFragment());
+            case R.id.nav_personal:
+                new MaterialDialog.Builder(MainActivity.this)
+                        .title("关于作者")
+                        .icon(getResources().getDrawable(R.drawable.ic_personal))
+                        .positiveText("确定")
+                        .content(R.string.about_account)
+                        .show();
                 break;
-            case R.id.nav_xz:
-                changeFragment(new WMXZFragment());
-                break;
-            case R.id.nav_wallpaper:
-                changeFragment(new WALLPAPERFragment());
-                break;
-//            case R.id.nav_share:
-//                new MaterialDialog.Builder(MainActivity.this)
-//                        .title("关于应用")
-//                        .icon(getResources().getDrawable(R.drawable.ic_about))
-//                        .positiveText("确定")
-//                        .content(R.string.about_app)
-//                        .show();
-//                break;
-//            case R.id.nav_personal:
-//                new MaterialDialog.Builder(MainActivity.this)
-//                        .title("关于作者")
-//                        .icon(getResources().getDrawable(R.drawable.ic_personal))
-//                        .positiveText("确定")
-//                        .content(R.string.about_account)
-//                        .show();
-//
-//                break;
         }
         mToolbar.setTitle(item.getTitle());
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

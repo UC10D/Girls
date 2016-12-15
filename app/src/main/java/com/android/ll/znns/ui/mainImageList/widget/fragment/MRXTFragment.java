@@ -42,11 +42,11 @@ public class MRXTFragment extends BaseFragment implements ImageListView, SwipeRe
     protected void initData() {
         mPersenter = new ImageListPersenterImpl(this);
         switch (getClass().getSimpleName()) {
-            case "NewFragment":
-                mType = Constant.NEW;
+            case "DMFragment":
+                mType = Constant.DM;
                 break;
-            case "XinGanFragment":
-                mType = Constant.XINGGAN;
+            case "QTFragment":
+                mType = Constant.QT;
                 break;
             case "ShaoNvFragment":
                 mType = Constant.SHAONV;
@@ -60,11 +60,11 @@ public class MRXTFragment extends BaseFragment implements ImageListView, SwipeRe
             case "WMXZFragment":
                 mType = Constant.WMXZ;
                 break;
-            case "WALLPAPERFragment":
-                mType = Constant.WALLPAPER;
+            case "GamesFragment":
+                mType = Constant.GAMES;
                 break;
             default:
-                mType = Constant.NEW;
+                mType = Constant.DM;
                 break;
 
 
