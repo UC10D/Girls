@@ -1,6 +1,7 @@
 package com.android.ll.znns.ui.typeImageList.model;
 
 import com.android.ll.znns.domain.TypeImageDomain;
+import com.orhanobut.logger.Logger;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -27,17 +28,19 @@ public class TypeImageListModelImpl implements TypeImageListModel {
                 List<TypeImageDomain> typeImageDomains = new ArrayList();
                 try {
                     Document document = Jsoup.connect(url).get();
-                    Element element = document.getElementsByClass("rgg-imagegrid").first();
+                    Element element = document.getElementsByClass("photo-list-box").first();
+//                    Logger.e(element.toString());
                     Elements elementsA = element.getElementsByTag("a");
 
                     for (Element a : elementsA) {
                         String linkUrl = a.attr("abs:href");
-
+                        Logger.e(a.toString());
                         Elements img = a.getElementsByTag("img");
                         String src = img.attr("src");
                         String width = img.attr("width");
                         String height = img.attr("height");
-                        typeImageDomains.add(new TypeImageDomain(Integer.valueOf(width), Integer.valueOf(height), src, linkUrl));
+//                        typeImageDomains.add(new TypeImageDomain(Integer.valueOf(width), Integer.valueOf(height), src, linkUrl));
+                        typeImageDomains.add(new TypeImageDomain(Integer.valueOf(width), Integer.valueOf(height), src, src));
                     }
                 } catch (IOException e) {
                     subscriber.onError(e);
