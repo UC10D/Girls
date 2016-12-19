@@ -1,5 +1,7 @@
 package com.android.ll.znns.ui.typeImageList.model;
 
+import android.text.TextUtils;
+
 import com.android.ll.znns.domain.TypeImageDomain;
 import com.orhanobut.logger.Logger;
 
@@ -31,20 +33,28 @@ public class TypeImageListModelImpl implements TypeImageListModel {
                     Element element = document.getElementsByClass("photo-list-box").first();
 //                    Logger.e(element.toString());
                     Elements elementsA = element.getElementsByTag("a");
-
+                    Logger.e("Elements   " +  elementsA.toString());
                     for (Element a : elementsA) {
                         String linkUrl = a.attr("abs:href");
-                        Logger.e(a.toString());
+                        Logger.e("linkUrl   " +  a.toString());
                         Elements img = a.getElementsByTag("img");
                         String src = img.attr("src");
+                        if(TextUtils.isEmpty(src)){
+                            src = img.attr("srcs");
+                        }
                         String width = img.attr("width");
                         String height = img.attr("height");
 //                        typeImageDomains.add(new TypeImageDomain(Integer.valueOf(width), Integer.valueOf(height), src, linkUrl));
+
+                        if(TextUtils.isEmpty(src)){
+                            break;
+                        }
                         typeImageDomains.add(new TypeImageDomain(Integer.valueOf(width), Integer.valueOf(height), src, src));
                     }
                 } catch (IOException e) {
                     subscriber.onError(e);
                 }
+                Logger.e("----   " +  typeImageDomains.size());
                 System.out.print(typeImageDomains.get(0).getHeight());
                 subscriber.onNext(typeImageDomains);
             }
