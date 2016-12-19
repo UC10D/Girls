@@ -5,25 +5,38 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "com.flyou.girls"
+        applicationId "com.android.ll.bz"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 10000
+        versionName "1.0.0"
     }
     buildTypes {
-        release {
-            minifyEnabled false
+        debug {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        znns {
+            applicationId "com.android.ll.znns"
         }
     }
 }
 
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'io.reactivex:rxandroid:1.1.0'
+    //    compile 'com.squareup.retrofit2:retrofit:2.0.2'
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.android.support:design:23.3.0'
     compile files('libs/jsoup-1.9.1.jar')
@@ -36,5 +49,9 @@ dependencies {
     compile('com.github.afollestad.material-dialogs:core:0.8.5.6@aar') {
         transitive = true
     }
-    compile files('libs/commons-io-2.4.jar')
+//    compile files('libs/commons-io-2.4.jar')
+    compile files('libs/GDTUnionSDK.4.9.540.min.jar')
+
+    compile 'com.github.tianzhijiexian:logger:1.1.8'
+    compile 'com.jakewharton.timber:timber:4.4.0'
 }
