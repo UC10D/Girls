@@ -6,8 +6,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.android.ll.znns.R;
 import com.android.ll.znns.adapter.SpacesItemDecoration;
 import com.android.ll.znns.adapter.ViewHolder;
-import com.android.ll.znns.adapter.recyclerview.CommonAdapter;
+import com.android.ll.znns.adapter.recyclerview.PullAdapter;
 import com.android.ll.znns.domain.TypeImageDomain;
 import com.android.ll.znns.ui.ImageDetialActivity;
 import com.android.ll.znns.ui.typeImageList.persenter.TypeImageListPersenter;
@@ -30,8 +30,8 @@ public class TypeImageActivity extends AppCompatActivity implements SwipeRefresh
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
     private TypeImageListPersenter mPersenter;
-    private LinearLayoutManager mLayoutManager;
-    private CommonAdapter mAdapter;
+    private StaggeredGridLayoutManager mLayoutManager;
+    private PullAdapter mAdapter;
     private String mLinkUrl;
     private String mTitle;
     private Toolbar mToolbar;
@@ -114,7 +114,8 @@ public class TypeImageActivity extends AppCompatActivity implements SwipeRefresh
     @Override
     public void receiveImageList(final List<TypeImageDomain> typeImageDomains) {
         if (mAdapter == null) {
-            mAdapter = new CommonAdapter<TypeImageDomain>(TypeImageActivity.this, R.layout.view_item_type_image, typeImageDomains) {
+            mAdapter = new PullAdapter<TypeImageDomain>(TypeImageActivity.this, R.layout.view_item_type_image,
+                    typeImageDomains, R.id.imageView) {
                 @Override
                 public void convert(ViewHolder holder, final TypeImageDomain typeImageDomain) {
                     holder.setImageWithUrlAndSize(R.id.imageView, typeImageDomain.getUrl(), typeImageDomain.getWidth(), typeImageDomain.getHeight());
@@ -131,7 +132,7 @@ public class TypeImageActivity extends AppCompatActivity implements SwipeRefresh
                     });
                 }
             };
-            mLayoutManager = new LinearLayoutManager(TypeImageActivity.this);
+            mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
             mRecyclerView.setLayoutManager(mLayoutManager);
             mRecyclerView.setItemAnimator(new SlideInLeftAnimator());
             //设置item之间的间隔
