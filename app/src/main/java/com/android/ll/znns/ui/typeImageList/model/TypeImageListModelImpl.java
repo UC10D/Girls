@@ -36,7 +36,14 @@ public class TypeImageListModelImpl implements TypeImageListModel {
                     Logger.e("Elements   " +  elementsA.toString());
                     for (Element a : elementsA) {
                         String linkUrl = a.attr("abs:href");
-                        Logger.e("linkUrl   " +  a.toString());
+                        Logger.e("linkUrl   " +  linkUrl.toString());
+
+                        Document big = Jsoup.connect(linkUrl).get();
+                        Element bigE = big.getElementById("bigImg");
+                        String bigSrc = bigE.attr("src");
+
+                        Logger.e("bigSrc   " +  bigSrc.toString());
+
                         Elements img = a.getElementsByTag("img");
                         String src = img.attr("src");
                         if(TextUtils.isEmpty(src)){
@@ -44,17 +51,14 @@ public class TypeImageListModelImpl implements TypeImageListModel {
                         }
                         String width = img.attr("width");
                         String height = img.attr("height");
-//                        typeImageDomains.add(new TypeImageDomain(Integer.valueOf(width), Integer.valueOf(height), src, linkUrl));
-
                         if(TextUtils.isEmpty(src)){
                             break;
                         }
-                        typeImageDomains.add(new TypeImageDomain(Integer.valueOf(width), Integer.valueOf(height), src, src));
+                        typeImageDomains.add(new TypeImageDomain(Integer.valueOf(width), Integer.valueOf(height), src, bigSrc));
                     }
                 } catch (IOException e) {
                     subscriber.onError(e);
                 }
-                Logger.e("----   " +  typeImageDomains.size());
                 System.out.print(typeImageDomains.get(0).getHeight());
                 subscriber.onNext(typeImageDomains);
             }
