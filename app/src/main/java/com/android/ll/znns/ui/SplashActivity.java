@@ -27,31 +27,36 @@ public class SplashActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_splash);
-
         mWowSplashView = (WowSplashView) findViewById(R.id.wowSplash);
         mWowView = (WowView) findViewById(R.id.wowView);
-        mWowSplashView.startAnimate();
+        if (!SharedPreferencesUtil.getBoolean(SplashActivity.this, "isGuideShowed", false)) {
+            Intent intent = new Intent(SplashActivity.this, GuideActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            mWowSplashView.startAnimate();
 
-
-        mWowSplashView.setOnEndListener(new WowSplashView.OnEndListener() {
-            @Override public void onEnd(final WowSplashView wowSplashView) {
-                mWowSplashView.setVisibility(View.GONE);
-                mWowView.setVisibility(View.VISIBLE);
-                mWowView.startAnimate(wowSplashView.getDrawingCache());
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (!SharedPreferencesUtil.getBoolean(SplashActivity.this,"isGuideShowed", false)) {
-                            Intent intent = new Intent(SplashActivity.this, GuideActivity.class);
-                            startActivity(intent);
-                        } else {
+            mWowSplashView.setOnEndListener(new WowSplashView.OnEndListener() {
+                @Override
+                public void onEnd(final WowSplashView wowSplashView) {
+                    mWowSplashView.setVisibility(View.GONE);
+                    mWowView.setVisibility(View.VISIBLE);
+                    mWowView.startAnimate(wowSplashView.getDrawingCache());
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+//                        if (!SharedPreferencesUtil.getBoolean(SplashActivity.this,"isGuideShowed", false)) {
+//                            Intent intent = new Intent(SplashActivity.this, GuideActivity.class);
+//                            startActivity(intent);
+//                        } else {
                             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                             startActivity(intent);
+//                        }
+                            finish();
                         }
-                        finish();
-                    }
-                }, 1000);
-            }
-        });
+                    }, 1000);
+                }
+            });
+        }
     }
 }
