@@ -119,7 +119,7 @@ public class TypeImageActivity extends AppCompatActivity implements SwipeRefresh
                 @Override
                 public void convert(ViewHolder holder, final TypeImageDomain typeImageDomain) {
                     holder.setImageWithUrlAndSize(R.id.imv_second_item, typeImageDomain.getUrl(), typeImageDomain.getWidth(), typeImageDomain.getHeight());
-                    holder.setOnClickListener(R.id.imageView, new View.OnClickListener() {
+                    holder.setOnClickListener(R.id.imv_second_item, new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(TypeImageActivity.this, ImageDetialActivity.class);
@@ -132,7 +132,7 @@ public class TypeImageActivity extends AppCompatActivity implements SwipeRefresh
                     });
                 }
             };
-            mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+            mLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
             mRecyclerView.setLayoutManager(mLayoutManager);
             mRecyclerView.setItemAnimator(new SlideInLeftAnimator());
             //设置item之间的间隔
