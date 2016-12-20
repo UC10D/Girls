@@ -16,6 +16,7 @@ import com.android.ll.znns.R;
 import com.android.ll.znns.adapter.SpacesItemDecoration;
 import com.android.ll.znns.adapter.ViewHolder;
 import com.android.ll.znns.adapter.recyclerview.CommonAdapter;
+import com.android.ll.znns.adapter.recyclerview.PullAdapter;
 import com.android.ll.znns.domain.TypeImageDomain;
 import com.android.ll.znns.ui.ImageDetialActivity;
 import com.android.ll.znns.ui.typeImageList.persenter.TypeImageListPersenter;
@@ -31,7 +32,8 @@ public class TypeImageActivity extends AppCompatActivity implements SwipeRefresh
     private RecyclerView mRecyclerView;
     private TypeImageListPersenter mPersenter;
     private StaggeredGridLayoutManager mLayoutManager;
-    private CommonAdapter mAdapter;
+//    private CommonAdapter mAdapter;
+    private PullAdapter mAdapter;
     private String mLinkUrl;
     private String mTitle;
     private Toolbar mToolbar;
@@ -114,11 +116,29 @@ public class TypeImageActivity extends AppCompatActivity implements SwipeRefresh
     @Override
     public void receiveImageList(final List<TypeImageDomain> typeImageDomains) {
         if (mAdapter == null) {
-            mAdapter = new CommonAdapter<TypeImageDomain>(TypeImageActivity.this, R.layout.view_item_type_image,
-                    typeImageDomains) {
+//            mAdapter = new CommonAdapter<TypeImageDomain>(TypeImageActivity.this, R.layout.view_item_type_image,
+//                    typeImageDomains) {
+//                @Override
+//                public void convert(ViewHolder holder, final TypeImageDomain typeImageDomain) {
+//                    holder.setImageWithUrlAndSize(R.id.imv_second_item, typeImageDomain.getUrl(), typeImageDomain.getWidth(), typeImageDomain.getHeight());
+//                    holder.setOnClickListener(R.id.imv_second_item, new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            Intent intent = new Intent(TypeImageActivity.this, ImageDetialActivity.class);
+////                            intent.putParcelableArrayListExtra("imagelist", (ArrayList) typeImageDomains);
+//                            intent.putExtra("imageurl", typeImageDomain.getFullSizeUrl());
+//                            ActivityOptionsCompat options =
+//                                    ActivityOptionsCompat.makeSceneTransitionAnimation(TypeImageActivity.this);
+//                            ActivityCompat.startActivity(TypeImageActivity.this, intent, options.toBundle());
+//                        }
+//                    });
+//                }
+//            };
+            mAdapter = new PullAdapter<TypeImageDomain>(TypeImageActivity.this, R.layout.view_item_type_image, typeImageDomains, R.id.imv_second_item) {
                 @Override
                 public void convert(ViewHolder holder, final TypeImageDomain typeImageDomain) {
                     holder.setImageWithUrlAndSize(R.id.imv_second_item, typeImageDomain.getUrl(), typeImageDomain.getWidth(), typeImageDomain.getHeight());
+//                    holder.setImageWithUrl(R.id.imv_second_item, typeImageDomain.getUrl());
                     holder.setOnClickListener(R.id.imv_second_item, new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

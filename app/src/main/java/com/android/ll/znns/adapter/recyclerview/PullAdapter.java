@@ -85,7 +85,7 @@ public abstract class PullAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
         ImageView view = holder.getView(mImvId);
 
         // 随机高度, 模拟瀑布效果.
-        int height = (int) (100 + Math.random() * 300);
+        int height = (int) (180 + Math.random() * 300);
 
         ViewGroup.LayoutParams lp = view.getLayoutParams();
         lp.height = height;
