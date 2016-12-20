@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import com.android.ll.znns.R;
 import com.android.ll.znns.adapter.fragment.CommonFragmentPagerAdapter;
 import com.android.ll.znns.fragment.GuideFragment;
+import com.android.ll.znns.utils.SharedPreferencesUtil;
 
 import java.util.LinkedList;
 
@@ -100,6 +101,7 @@ public class GuideActivity extends AppCompatActivity implements ViewPager.OnPage
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
+                    SharedPreferencesUtil.saveBoolean(GuideActivity.this, "isGuideShowed", true);
                 }
             }
 
