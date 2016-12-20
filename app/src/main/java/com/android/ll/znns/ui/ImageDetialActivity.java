@@ -91,7 +91,7 @@ public class ImageDetialActivity extends AppCompatActivity implements View.OnCli
                     @Override
                     public void call(Subscriber<? super String> subscriber) {
                         String fileName = System.currentTimeMillis() + ".jpg";
-                        File file = new File(Environment.getExternalStorageDirectory() + File.separator + "Girls", fileName);
+                        File file = new File(Environment.getExternalStorageDirectory() + File.separator + "TNT", fileName);
 
                         if (Environment.getExternalStorageState().equals(
 
