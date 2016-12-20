@@ -12,7 +12,4 @@
     <item
         android:drawable="@drawable/guide_cat_four"
         android:duration="200" />
-    <!--<item-->
-        <!--android:drawable="@drawable/guide_cat_five"-->
-        <!--android:duration="200" />-->
 </animation-list>
