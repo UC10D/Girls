@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            confirmExitAction();
         }
     }
 
@@ -147,7 +147,26 @@ public class MainActivity extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.fragent_content, fragment).commit();
             mCurrentFragment = fragment;
         }
-
-
     }
+
+    /**
+     * 记录最后一次按下返回按钮的时间
+     */
+    private Long mLastBackTime = 0L;
+
+    /**
+     * 确认退出动作
+     */
+    private void confirmExitAction() {
+        if ((System.currentTimeMillis() - mLastBackTime) > 2000) {
+            Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            // 通过获取系统时间做判断
+            mLastBackTime = System.currentTimeMillis();
+        }else {
+            // 退出
+//            android.os.Process.killProcess(Process.myPid());
+            finish();
+        }
+    }
+
 }
