@@ -151,7 +151,7 @@ public class TypeImageActivity extends AppCompatActivity implements SwipeRefresh
                     });
                 }
             };
-            mLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+            mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
             mRecyclerView.setLayoutManager(mLayoutManager);
             mRecyclerView.setItemAnimator(new SlideInLeftAnimator());
             //设置item之间的间隔
