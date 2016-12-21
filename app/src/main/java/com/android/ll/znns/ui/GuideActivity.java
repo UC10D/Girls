@@ -60,7 +60,7 @@ public class GuideActivity extends AppCompatActivity implements ViewPager.OnPage
     }
 
     private void initData() {
-        imgResUp = new int[]{R.drawable.guide_up_one_bg, R.drawable.guide_up_two_bg, R.drawable.guide_up_three_bg};
+        imgResUp = new int[]{R.drawable.guide_up_1, R.drawable.guide_up_2, R.drawable.guide_up_3};
         imgResDown = new int[]{R.drawable.guide_down_one, R.drawable.guide_down_two, R.drawable.guide_down_three};
         mFragmentList = new LinkedList<>();
         parseFragment();
@@ -95,6 +95,11 @@ public class GuideActivity extends AppCompatActivity implements ViewPager.OnPage
 
             if (action == MotionEvent.ACTION_DOWN) {
                 lastX = motionEvent.getX();
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+                SharedPreferencesUtil.saveBoolean(GuideActivity.this, "isGuideShowed", true);
             } else if (action == MotionEvent.ACTION_MOVE) {
                 if (lastX - motionEvent.getX() > 100) {
                     Intent intent = new Intent(this, MainActivity.class);

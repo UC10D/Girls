@@ -7,10 +7,8 @@
     <ImageView
         android:id="@+id/img_guide_up"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/guide_up_one_bg" />
-
-
+        android:layout_height="match_parent"
+        android:scaleType="centerInside"
+        android:src="@drawable/guide_up_1" />
 
 </LinearLayout>
