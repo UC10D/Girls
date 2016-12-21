@@ -15,7 +15,6 @@ import android.widget.Toast;
 import com.android.ll.znns.R;
 import com.android.ll.znns.adapter.SpacesItemDecoration;
 import com.android.ll.znns.adapter.ViewHolder;
-import com.android.ll.znns.adapter.recyclerview.CommonAdapter;
 import com.android.ll.znns.adapter.recyclerview.PullAdapter;
 import com.android.ll.znns.domain.TypeImageDomain;
 import com.android.ll.znns.ui.ImageDetialActivity;

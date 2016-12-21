@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.android.ll.znns.adapter.ViewHolder;
+import com.android.ll.znns.domain.TypeImageDomain;
 
 import java.util.List;
 
@@ -85,10 +86,11 @@ public abstract class PullAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
         ImageView view = holder.getView(mImvId);
 
         // 随机高度, 模拟瀑布效果.
-        int height = (int) (180 + Math.random() * 300);
+//        int height = (int) (180 + Math.random() * 300);
 
         ViewGroup.LayoutParams lp = view.getLayoutParams();
-        lp.height = height;
+        lp.height = ((TypeImageDomain)mDatas.get(position)).getHeight();
+        lp.width = ((TypeImageDomain)mDatas.get(position)).getWidth();
 
         view.setLayoutParams(lp);
 

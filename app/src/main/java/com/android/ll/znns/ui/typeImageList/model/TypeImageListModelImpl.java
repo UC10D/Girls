@@ -54,7 +54,9 @@ public class TypeImageListModelImpl implements TypeImageListModel {
                         if(TextUtils.isEmpty(src)){
                             break;
                         }
-                        typeImageDomains.add(new TypeImageDomain(Integer.valueOf(width), Integer.valueOf(height), src, bigSrc));
+                        int ran = (int) (Math.random() * 300);
+                        typeImageDomains.add(new TypeImageDomain(
+                                Integer.valueOf(width) + ran, Integer.valueOf(height) + ran, src, bigSrc));
                     }
                 } catch (IOException e) {
                     subscriber.onError(e);
