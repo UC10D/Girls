@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,7 +60,7 @@ public class DlgFeedBack extends DialogFragment {
         dialog.setCancelable(false);
     }
 
-    private void setUpViewAndData(View view) {
+    private void setUpViewAndData(final View view) {
 
         view.findViewById(R.id.imb_feedback_cancel).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,18 +72,17 @@ public class DlgFeedBack extends DialogFragment {
         view.findViewById(R.id.btn_feedback_send).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addOne();
-                dismissAllowingStateLoss();
+                addOne(view);
             }
         });
 
     }
 
-    private void addOne() {
+    private void addOne(View view) {
         final Activity activity = getActivity();
         if(activity == null) return;
-        String content = ((TextView)activity.findViewById(R.id.edt_feedback_content)).getText().toString();
-        String address = ((TextView)activity.findViewById(R.id.edt_feedback_address)).getText().toString();
+        String content = ((EditText)view.findViewById(R.id.edt_feedback_content)).getText().toString();
+        String address = ((EditText)view.findViewById(R.id.edt_feedback_address)).getText().toString();
 
         if(TextUtils.isEmpty(content) || TextUtils.isEmpty(address)) {
             Toast.makeText(activity, "请填写相关信息" , Toast.LENGTH_LONG).show();
@@ -103,5 +103,7 @@ public class DlgFeedBack extends DialogFragment {
                 }
             }
         });
+
+        dismissAllowingStateLoss();
     }
 }

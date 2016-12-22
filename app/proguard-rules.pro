@@ -139,3 +139,31 @@
 -dontwarn org.jsoup.**
 -keep class org.jsoup.** { *;}
 
+
+#bmob
+
+-dontwarn cn.bmob.v3.**
+-keep class cn.bmob.v3.** {*;}
+#保证继承自BmobObject、BmobUser类的JavaBean不被混淆
+
+-keep class * extends cn.bmob.v3.BmobObject {
+*;
+}
+
+-dontwarn com.squareup.okhttp.**
+-keep class com.squareup.okhttp.** { *;}
+-keep interface com.squareup.okhttp.** { *; }
+-dontwarn okio.**
+
+-dontwarn android.net.compatibility.**
+-dontwarn android.net.http.**
+-dontwarn com.android.internal.http.multipart.**
+-dontwarn org.apache.commons.**
+-dontwarn org.apache.http.**
+-keep class android.net.compatibility.{*;}
+-keep class android.net.http.{*;}
+-keep class com.android.internal.http.multipart.{*;}
+-keep class org.apache.commons.{*;}
+-keep class org.apache.http.**{*;}
+
+
