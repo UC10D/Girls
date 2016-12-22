@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.android.ll.znns.R;
 import com.android.ll.znns.adapter.SpacesItemDecoration;
 import com.android.ll.znns.adapter.ViewHolder;
+import com.android.ll.znns.adapter.recyclerview.CommonAdapter;
 import com.android.ll.znns.adapter.recyclerview.PullAdapter;
 import com.android.ll.znns.domain.TypeImageDomain;
 import com.android.ll.znns.ui.ImageDetialActivity;
@@ -32,7 +33,7 @@ public class TypeImageActivity extends AppCompatActivity implements SwipeRefresh
     private TypeImageListPersenter mPersenter;
     private StaggeredGridLayoutManager mLayoutManager;
 //    private CommonAdapter mAdapter;
-    private PullAdapter mAdapter;
+    private CommonAdapter mAdapter;
     private String mLinkUrl;
     private String mTitle;
     private Toolbar mToolbar;
@@ -133,11 +134,11 @@ public class TypeImageActivity extends AppCompatActivity implements SwipeRefresh
 //                    });
 //                }
 //            };
-            mAdapter = new PullAdapter<TypeImageDomain>(TypeImageActivity.this, R.layout.view_item_type_image, typeImageDomains, R.id.imv_second_item) {
+            mAdapter = new CommonAdapter<TypeImageDomain>(TypeImageActivity.this, R.layout.view_item_type_image, typeImageDomains) {
                 @Override
                 public void convert(ViewHolder holder, final TypeImageDomain typeImageDomain) {
-                    holder.setImageWithUrlAndSize(R.id.imv_second_item, typeImageDomain.getUrl(), typeImageDomain.getWidth(), typeImageDomain.getHeight());
-//                    holder.setImageWithUrl(R.id.imv_second_item, typeImageDomain.getUrl());
+//                    holder.setImageWithUrlAndSize(R.id.imv_second_item, typeImageDomain.getUrl(), typeImageDomain.getWidth(), typeImageDomain.getHeight());
+                    holder.setImageWithUrl(R.id.imv_second_item, typeImageDomain.getUrl());
                     holder.setOnClickListener(R.id.imv_second_item, new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
