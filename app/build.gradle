@@ -9,7 +9,7 @@ android {
 
 
     defaultConfig {
-        applicationId "com.android.ll.bz"
+        applicationId "com.android.ll.znns"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 10000

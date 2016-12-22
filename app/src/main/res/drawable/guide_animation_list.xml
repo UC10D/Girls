@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:drawable="@drawable/guide_cat_one"
-        android:duration="200" />
+        android:drawable="@drawable/guide_1"
+        android:duration="100" />
     <item
-        android:drawable="@drawable/guide_cat_two"
-        android:duration="200" />
+        android:drawable="@drawable/guide_2"
+        android:duration="100" />
     <item
-        android:drawable="@drawable/guide_cat_three"
-        android:duration="200" />
+        android:drawable="@drawable/guide_3"
+        android:duration="100" />
     <item
-        android:drawable="@drawable/guide_cat_four"
-        android:duration="200" />
+        android:drawable="@drawable/guide_4"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/guide_5"
+        android:duration="100" />
 </animation-list>

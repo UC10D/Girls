@@ -34,13 +34,13 @@ public class SplashActivity extends AppCompatActivity {
         mWowSplashView = (WowSplashView) findViewById(R.id.wowSplash);
         mWowView = (WowView) findViewById(R.id.wowView);
 
-        Glide.with(this)
-                .load(R.drawable.guide_up_2)
-                .asGif() //判断加载的url资源是否为gif格式的资源  
-                .centerCrop()
-                .crossFade()
-                .placeholder(R.drawable.guide_up_2)
-                .into(imgSplash);
+//        Glide.with(this)
+//                .load(R.drawable.guide_up_2)
+//                .asGif() //判断加载的url资源是否为gif格式的资源
+//                .centerCrop()
+//                .crossFade()
+//                .placeholder(R.drawable.guide_up_2)
+//                .into(imgSplash);
 
         if (!SharedPreferencesUtil.getBoolean(SplashActivity.this, "isGuideShowed", false)) {
             Intent intent = new Intent(SplashActivity.this, GuideActivity.class);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="444dp"
+        android:visibility="gone"
         android:src="@drawable/guide_down_one" />
 
     <LinearLayout
@@ -35,9 +36,10 @@
 
     <ImageView
         android:id="@+id/img_ride"
-        android:layout_width="140dp"
-        android:layout_height="176dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="242dp" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="120dp"
+        android:layout_marginLeft="56dp" />
 
-</FrameLayout>
+</RelativeLayout>
