@@ -42,8 +42,6 @@ public class TypeImageListModelImpl implements TypeImageListModel {
                         Element bigE = big.getElementById("bigImg");
                         String bigSrc = bigE.attr("src");
 
-                        Logger.e("bigSrc   " +  bigSrc.toString());
-
                         Elements img = a.getElementsByTag("img");
                         String src = img.attr("src");
                         if(TextUtils.isEmpty(src)){
@@ -61,7 +59,6 @@ public class TypeImageListModelImpl implements TypeImageListModel {
                 } catch (IOException e) {
                     subscriber.onError(e);
                 }
-                System.out.print(typeImageDomains.get(0).getHeight());
                 subscriber.onNext(typeImageDomains);
             }
         });
