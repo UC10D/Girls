@@ -14,6 +14,10 @@
             android:id="@+id/nav_qt"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="卡通" />
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_menu_send"
+            android:title="意见反馈" />
     </group>
 
     <item android:title="关于">

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.android.ll.znns.R;
+import com.android.ll.znns.ui.dialog.DlgFeedBack;
 import com.android.ll.znns.ui.mainImageList.widget.fragment.DMFragment;
 import com.android.ll.znns.ui.mainImageList.widget.fragment.GamesFragment;
 import com.android.ll.znns.ui.mainImageList.widget.fragment.QTFragment;
@@ -89,6 +90,11 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_qt:
                 changeFragment(new QTFragment());
+                break;
+            case R.id.nav_feedback:
+                DlgFeedBack dialog = (DlgFeedBack) Fragment.instantiate(MainActivity.this,
+                        DlgFeedBack.class.getName(), null);
+                dialog.show(getSupportFragmentManager(), DlgFeedBack.class.getName());
                 break;
             case R.id.nav_share:
                 new MaterialDialog.Builder(MainActivity.this)

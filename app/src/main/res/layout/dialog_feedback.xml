@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/lin_coupon_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="@color/color_white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:textColor="@color/color_main_title"
+            android:text="意见反馈"/>
+
+        <EditText
+            android:id="@+id/edt_feedback_content"
+            android:layout_width="240dp"
+            android:layout_height="320dp"
+            android:textSize="16sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:lineSpacingExtra="6dp"
+            android:textColor="@color/color_sec_title"/>
+
+        <EditText
+            android:id="@+id/edt_feedback_address"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:hint="请填写你的qq/邮件/电话号码"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:lineSpacingExtra="6dp"
+            android:textColor="@color/color_sec_title"/>
+        
+        <Button
+            android:id="@+id/btn_feedback_send"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:text="发送"/>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imb_feedback_cancel"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_title_menu"
+        android:layout_alignTop="@+id/lin_coupon_info"
+        android:layout_alignRight="@+id/lin_coupon_info"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_cancel"/>
+
+</RelativeLayout>
+
