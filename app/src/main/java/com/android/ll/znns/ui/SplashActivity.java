@@ -36,7 +36,7 @@ public class SplashActivity extends AppCompatActivity {
 
         Glide.with(this)
                 .load(R.drawable.guide_up_2)
-                .asGif() //判断加载的url资源是否为gif格式的资源
+                .asGif() //判断加载的url资源是否为gif格式的资源  
                 .centerCrop()
                 .crossFade()
                 .placeholder(R.drawable.guide_up_2)
